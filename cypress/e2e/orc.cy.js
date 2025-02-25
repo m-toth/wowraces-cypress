@@ -1,5 +1,9 @@
 describe('Teste de navegação no site World of Warcraft', () => {
+
   it('- Dado que acessei o site do World of Warcraft\n- E clico em Informações do Jogo > Raças', () => {
+    
+    // Intercepta todas as requisições do tipo xhr e fetch e não exibe no console
+    cy.intercept({ resourceType: /xhr|fetch/ }, { log: false })
 
     cy.visit('https://worldofwarcraft.blizzard.com/pt-br/')
     cy.get('blz-header > h2')
@@ -37,6 +41,10 @@ describe('Teste de navegação no site World of Warcraft', () => {
   })
 
   it('- Quando clico em Orc\n- Então valido que a página que fala dos Orcs está sendo apresentada', () => {
+    
+    // Intercepta todas as requisições do tipo xhr e fetch e não exibe no console
+    cy.intercept({ resourceType: /xhr|fetch/ }, { log: false })
+
     cy.visit('https://worldofwarcraft.blizzard.com/pt-br/game/races')
     let logoHorda = 'https://blz-contentstack-images.akamaized.net/v3/assets/blt3452e3b114fab0cd/blt2f2ccd276a041b46/616da56e67ad6d1042a4dbab/VGJ2XT8PAJL31531171276190.png'
     
