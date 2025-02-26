@@ -6,8 +6,8 @@ describe('Teste de navegação no site World of Warcraft', () => {
     cy.intercept({ resourceType: /xhr|fetch/ }, { log: false })
 
     cy.visit('https://worldofwarcraft.blizzard.com/pt-br/')
-    cy.get('blz-header > h2')
-      .should('contain.text', 'World of Warcraft')
+    cy.get('blz-button')
+      .should('contain.text', 'Assine já!')
 
     cy.get('#blz-nav-wow-game-info')
       .shadow()
@@ -41,7 +41,7 @@ describe('Teste de navegação no site World of Warcraft', () => {
   })
 
   it('- Quando clico em Orc\n- Então valido que a página que fala dos Orcs está sendo apresentada', () => {
-    
+
     // Intercepta todas as requisições do tipo xhr e fetch e não exibe no console
     cy.intercept({ resourceType: /xhr|fetch/ }, { log: false })
 
